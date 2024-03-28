@@ -12,13 +12,16 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import SidebarCompanyName from "./SidebarCompanyName";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
   const pageFullUrl = usePathname();
   console.log(pageFullUrl.split("/"));
-  const colornav=pageFullUrl.split("/")
+  const colornav = pageFullUrl.split("/");
+
+  
 
   return (
     <div className="basis-[16%] p-4 bg-blue-950 h-screen">
@@ -112,6 +115,9 @@ export default function Sidebar() {
           </span>
           <span>Ausloggin</span>
         </div>
+      </div>
+      <div className="mt-28">
+        {pageFullUrl.substring(1) === "customer" && <SidebarCompanyName />}
       </div>
     </div>
   );
