@@ -17,8 +17,8 @@ import {
   Pagination,
 } from "@nextui-org/react";
 
-import { columns, users, statusOptions } from "../data";
-import { capitalize } from "../utils";
+import { columns, users, statusOptions } from "@/app/data";
+import { capitalize } from "@/app/utils";
 import {
   ChevronDownIcon,
   EllipsisVertical,
@@ -100,7 +100,7 @@ export default function TableComponent() {
     });
   }, [sortDescriptor, array]);
 
-  console.log(array)
+  //console.log(array)
 
   function handleDeleteClick(id) {
     // here we are filtering - the idea is remove an item from the todo array on a button click
@@ -112,7 +112,7 @@ export default function TableComponent() {
     });
     // removeItem returns a new array - so now we are setting the todos to the new array
     setArray(removeItem)
-    console.log(removeItem)
+    //console.log(removeItem)
   }
 
   const renderCell = React.useCallback((user, columnKey) => {

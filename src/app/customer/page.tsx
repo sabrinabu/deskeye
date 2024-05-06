@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { usePathname } from "next/navigation";
-import CustomerRightbar from "../components/CustomerRightbar";
-import SidebarCompanyName from "../components/SidebarCompanyName";
+import CustomerRightbar from "../components/customer/CustomerRightbar";
+import SidebarCompanyName from "../components/customer/SidebarCompanyName";
 
 export default function () {
   const pageFullUrl = usePathname();

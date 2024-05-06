@@ -1,6 +1,6 @@
 "use client";
-import CreateDevice from "@/app/components/CreateDevice";
-import CustomerRightbar from "@/app/components/CustomerRightbar";
+import CreateDevice from "@/app/components/device/CreateDevice";
+import CustomerRightbar from "@/app/components/customer/CustomerRightbar";
 import Header from "@/app/components/Header";
 import Sidebar from "@/app/components/Sidebar";
 import { usePathname } from "next/navigation";

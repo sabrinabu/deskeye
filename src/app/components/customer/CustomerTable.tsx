@@ -2,7 +2,7 @@
 import { Button, User } from "@nextui-org/react";
 import React from "react";
 import TableComponent from "./TableComponent";
-import { Scrollbars } from "react-custom-scrollbars";
+
 
 export default function CustomerTable() {
   return (

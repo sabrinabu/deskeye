@@ -1,6 +1,6 @@
 "use client"
 
-import CreateCustomer from '@/app/components/CreateCustomer'
+import CreateCustomer from '@/app/components/customer/CreateCustomer'
 import Header from '@/app/components/Header'
 import Sidebar from '@/app/components/Sidebar'
 import React from 'react'

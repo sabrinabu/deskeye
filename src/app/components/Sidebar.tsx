@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import SidebarCompanyName from "./SidebarCompanyName";
+import SidebarCompanyName from "../components/customer/SidebarCompanyName";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
@@ -58,10 +58,10 @@ export default function Sidebar() {
           </div>
           {open && (
             <>
-              <span className="bg-blue-800 h-10 px-3 rounded-md py-2 mt-2">
+              <span className="bg-blue-800 h-10 px-6 rounded-md py-2 mt-2 ml-6">
                 Standard
               </span>
-              <span className="bg-blue-800 h-10 px-3 rounded-md py-2 mt-1">
+              <span className="bg-blue-800 h-10 px-6 rounded-md py-2 mt-1 ml-6">
                 Benuzt
               </span>
             </>

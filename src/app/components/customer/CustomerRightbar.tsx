@@ -5,11 +5,15 @@ import { Tooltip } from "@nextui-org/react";
 
 import CustomerSearchbar from "./CustomerSearchbar";
 import CustomerTable from "./CustomerTable";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
 type urlProps = {
   pageFullUrl: string;
 };
 
 export default function CustomerRightbar({ pageFullUrl }: urlProps) {
+  const status = useSelector((state: RootState) => state.statusSlice.open);
+  console.log("status" + status);
   return (
     <div className="basis-[84%] bg-blue-500 h-[calc(100vh-60px)] p-2">
       <div className="mt-2 text-white ms-2 text-xl"> {pageFullUrl}</div>
@@ -71,7 +75,7 @@ export default function CustomerRightbar({ pageFullUrl }: urlProps) {
       </div>
       <div className="flex mt-4">
         <CustomerSearchbar />
-        <CustomerTable />
+        {status && <CustomerTable />}
       </div>
     </div>
   );
