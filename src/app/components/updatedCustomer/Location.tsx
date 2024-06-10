@@ -14,9 +14,22 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+ type location = {
+  _id: number;
+  customerid: number;
+  address: string;
+};
+
+type locationdetails = {
+  _id: number;
+  locationid:  number;
+   name:  string;
+   amount: number;
+};
+
 export default function Department() {
-  const [locationdetail, setLocationdetail] = useState(["hello", "kelo"]);
-  const [location, setLocation] = useState(["hamburg"]);
+  const [locationdetail, setLocationdetail] = useState<locationdetails[]>();
+  const [location, setLocation] = useState<location[]>();
   const [adjustkey, setAdjustkey] = useState();
   const searchParams = useSearchParams();
   const router = useRouter();
