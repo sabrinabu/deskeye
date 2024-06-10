@@ -4,6 +4,7 @@ import departmentSlice from "./departmentSlice";
 import customerSlice from "./customerSlice";
 import locationSlice from "./locationSlice";
 import statusSlice from "./statusSlice";
+import controlsidebarSlice from "./controlsidebarSlice";
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     customerSlice:customerSlice,
     locationSlice:locationSlice,
     statusSlice:statusSlice,
+    controlsidebarSlice:controlsidebarSlice,
 });
 
 export const store = configureStore({

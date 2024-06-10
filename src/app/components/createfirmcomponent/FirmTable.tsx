@@ -87,13 +87,21 @@ export default function FirmTable({
   const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
-    if (searchInput === "") {
+    /*if (searchInput === "") {
       setContacts(contacts);
     }
     const newList = contacts.filter((post) =>
       post.name.toLowerCase().includes(searchInput.toLowerCase())
     );
-    setContacts(newList);
+    setContacts(newList);*/
+  };
+
+  const highlightText = (text, highlight) => {
+    if (!highlight) return text;
+    const regex = new RegExp(`(${highlight})`, 'gi');
+    return text.split(regex).map((part, index) => 
+      regex.test(part) ? <strong  key={index}>{part}</strong> : part
+    );
   };
 
   return (
@@ -130,7 +138,8 @@ export default function FirmTable({
       })?.map((row) => (
               <TableRow key={row.key}>
                 <TableCell onClick={(e) => handleEditClick(row)}>
-                  {row.name}
+                {highlightText(row.name, searchInput)}
+                  
                 </TableCell>
                 <TableCell>{row.telephone}</TableCell>
                 <TableCell>{row.email}</TableCell>

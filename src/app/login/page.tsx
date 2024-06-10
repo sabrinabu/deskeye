@@ -1,10 +1,47 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import background from "../../../public/background.jpg";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addRole } from "../redux/controlsidebarSlice";
 
 export default function page() {
+  const dispatch = useDispatch();
+  const [userData, setUserData] = useState([]);
+  const [gonextpage, setGonextpage] = useState<boolean>(false);
+  const [password, setPassword] = useState<number>();
+  console.log(password);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const handlegetdepartApi = async () => {
+      const result = await axios
+        .post("/api/login", { password: password })
+        .then((res) => setUserData(res.data));
+    };
+    handlegetdepartApi();
+    if (userData.data?.length <= 1) {
+      setGonextpage(true);
+    }
+  }, [password]);
+  console.log(userData);
+  const data = userData.data?.map((item) => item.role);
+  console.log(data);
+
+  //const [sendData, setSendData] = useState(data);
+
+  const handleNextpage = () => {
+    if (gonextpage === true) {
+      router.push("/root");
+      dispatch(addRole(data));
+   
+    }
+  };
   return (
     <div className="relative">
       <Image src={background} alt="" className="bg-cover h-screen" />
@@ -38,10 +75,11 @@ export default function page() {
               <input
                 type="number"
                 placeholder="password"
-                className="ml-2 mr-2 bg-slate-300 mt-3 rounded-md"
+                className="ml-2 mr-2 bg-slate-300 mt-3 rounded-md text-black"
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <button className="bg-slate-300 ml-2 mr-2 rounded-md mt-3 text-black animate-pulse">
-                login here
+              <button className="bg-slate-300 ml-2 mr-2 rounded-md mt-3 text-black animate-pulse" onClick={handleNextpage}>
+              login here
               </button>
               <span className="mt-2 px-2 text-black text-start">
                 Forget password?

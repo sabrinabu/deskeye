@@ -4,25 +4,25 @@ const departments = [
   {
     _id: 210,
     firmId: 130,
-    name: "IT Service",
+    name: "Department1",
     address: "Kaynatstr. 68, 58789 Berlin",
   },
   {
-    _id: 215,
+    _id: 210,
     firmId: 130,
-    name: "Software Development",
+    name: "Department2",
     address: "Kaynatstr. 68, 58789 Berlin",
   },
   {
-    _id: 225,
+    _id: 220,
     firmId: 169,
-    name: "Business Management",
+    name: "Department3",
     address: "Kaynatstr. 68, 58789 Berlin",
   },
   {
-    _id: 237,
+    _id: 230,
     firmId: 169,
-    name: "Human resource",
+    name: "Department1",
     address: "Kaynatstr. 68, 58789 Berlin",
   },
 ];
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     const response = NextResponse.json({
       message: "successful",
-      data: departments.filter((item) => item.firmId === firmid),
+      data: departments.filter((item) => item.firmId != firmid),
       success: true,
     });
 

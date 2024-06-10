@@ -12,6 +12,7 @@ export default function CustomerSearchbar() {
   const dispatch = useDispatch();
   const [departmentData, setDepartmentData] = useState<department[]>([]);
 
+
   const [customerData, setCustomerData] = useState<customer[]>([]);
   const [locationData, setLocationData] = useState<location[]>([]);
   const firmid = useSelector((state: RootState) => state.departmentSlice._id);
@@ -19,9 +20,9 @@ export default function CustomerSearchbar() {
     (state: RootState) => state.customerSlice._id
   );
   const customerid = useSelector((state: RootState) => state.locationSlice._id);
-  console.log("id" + departmentid);
+  //console.log("id" + departmentid);
   const status = useSelector((state: RootState) => state.statusSlice.open);
-  console.log("status" + status);
+  //console.log("status" + status);
 
   type location = {
     _id: Number;
@@ -42,6 +43,7 @@ export default function CustomerSearchbar() {
       dispatch(addStatus(true));
     }
   };
+
 
   useEffect(() => {
     const handlegetdepartApi = async () => {
@@ -70,7 +72,7 @@ export default function CustomerSearchbar() {
     handlegetdepartApi();
   }, [customerid]);
 
-  console.log(locationData);
+  //console.log(locationData);
 
   return (
     <div className="basis-[20%] border h-[calc(100vh-180px)]">

@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     console.log(reqBody);
     const response = NextResponse.json({
       message: "successful",
-      data: location.filter((item) => item.customerid === customerid),
+      data: location.filter((item) => item.customerid != customerid),
       success: true,
     });
 
